@@ -46,9 +46,6 @@ var createTaskEl = function (taskDataObj) {
   listItemEl.className = "task-item";
   listItemEl.setAttribute("data-task-id", taskIdCounter);
 
-  console.log(taskDataObj);
-  console.log(taskDataObj.status);
-
   var taskInfoEl = document.createElement("div");
   taskInfoEl.className = "task-info";
   taskInfoEl.innerHTML =
@@ -204,7 +201,6 @@ var taskStatusChangeHandler = function (event) {
   for (var i = 0; i < tasks.length; i++) {
     if (tasks[i].id === parseInt(taskId)) {
       tasks[i].status = statusValue;
-      console.log(tasks);
     }
   }
 
@@ -278,10 +274,9 @@ var loadTasks = function () {
   savedTasks = JSON.parse(savedTasks);
 
   // loop through savedTasks array
-  for (var i = 0; i < savedTasks.length; i++) {
+  for (var i = 0; i < savedTasks.length; i++)
     // pass each task object into the `createTaskEl()` function
     createTaskEl(savedTasks[i]);
-  }
 };
 
 // Create a new task
